@@ -53,7 +53,7 @@
     //   map（默认）- 整对象序列化为单个 JSON 键值，适合 KV/Blob
     //   key        - 分 key 存储，每实体一条记录（如 users_1）
     //   sql        - 关系表格式，与 Go 后端一致（适用于 D1/MySQL）
-    "DB_FORMAT": "map",
+    "DB_FORMAT": "key",
 
     // 数据库驱动：
     //   auto（默认）- 自动检测，顺序 mysql → d1 → kv → cfkv → blob → do
@@ -64,7 +64,7 @@
     //   do         - Cloudflare Durable Objects（需下方 durable_objects）
     //   mysql      - 外部 MySQL（需 MYSQL_URLS 或 MYSQL_HOST 等，仅 Node 运行时）
     // 说明：mysql 仅在配置了连接信息时才参与 auto 探测，避免无谓的 TCP 建连。
-    "DB_DRIVER": "auto",
+    "DB_DRIVER": "d1",
 
     // 敏感字段落盘算法（默认 none：不加密；与 DB_DRIVER/DB_FORMAT 正交）：
     //   none（默认）              - 不加密，敏感字段明文落盘
