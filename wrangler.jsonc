@@ -64,7 +64,7 @@
     //   do         - Cloudflare Durable Objects（需下方 durable_objects）
     //   mysql      - 外部 MySQL（需 MYSQL_URLS 或 MYSQL_HOST 等，仅 Node 运行时）
     // 说明：mysql 仅在配置了连接信息时才参与 auto 探测，避免无谓的 TCP 建连。
-    "DB_DRIVER": "d1",
+    "DB_DRIVER": "kv",
 
     // 敏感字段落盘算法（默认 none：不加密；与 DB_DRIVER/DB_FORMAT 正交）：
     //   none（默认）              - 不加密，敏感字段明文落盘
@@ -105,7 +105,7 @@
     // 优先「本地 index.html + CDN 资产」（不要求 CDN 能返回 HTML，npmmirror 也能用）；
     // 本地哈希不在 CDN 上时改用 CDN 的 index.html 保证同源；都不可用则回退源站
     // ⚠️ 资源由浏览器直接加载，CDN 必须对 .js/.css 返回 Access-Control-Allow-Origin
-    // "ASSET_URLS": "https://registry.npmmirror.com/@openlist-frontend/openlist-frontend/$version/files/dist",
+    "ASSET_URLS": "https://registry.npmmirror.com/@openlist-frontend/openlist-frontend/$version/files/dist",
     // "ASSET_URLS": "https://cdn.jsdelivr.net/npm/@openlist-frontend/openlist-frontend@$version/dist",
     // "ASSET_URLS": "https://unpkg.com/@openlist-frontend/openlist-frontend@$version/dist",
     //
